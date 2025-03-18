@@ -1,11 +1,17 @@
 #include <iostream>
 using namespace std;
 
-int fib(int n)
+void fib(int n)
 {
-	if (n == 0) return 0;
-	if (n == 1) return 1;
-	return fib(n - 1) + fib(n - 2);
+	int prev = 1, prev_prev = 0, t;
+	cout << prev_prev << endl << prev << endl;
+	for (int i = 2; i < n; i++)
+	{
+		t = prev_prev;
+		prev_prev = prev;
+		prev += t;
+		cout << prev << endl;
+	}
 }
 
 int main()
@@ -13,6 +19,6 @@ int main()
 	int n;
 	cout << "Input count: ";
 	cin >> n;
-	cout << fib(n - 1) << endl;
+	fib(n);
 	cout << "Hello world!" << endl;
 }
